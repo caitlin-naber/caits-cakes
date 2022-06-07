@@ -8,10 +8,12 @@ public class Cake {
     private double price;
 
 
-    public Cake(String name, String cakeType, String frostingType) {
+    public Cake(String name, String cakeType, String frostingType, String filling, String decorations) {
         this.name = name;
         this.cakeType = cakeType;
         this.frostingType = frostingType;
+        this.filling = filling;
+        this.decorations = decorations;
     }
 
 
@@ -51,8 +53,15 @@ public class Cake {
         this.price = price;
     }
 
-    // todo: account for filling and decoration
     public String cakeSummary() {
-        return name + ": " + cakeType + " with " + frostingType + ".";
+        String summary = name + ": " + cakeType + " with " + frostingType;
+        if (getFilling() != "none" && getDecorations() != "none") {
+            summary = name + ": " + cakeType + " with " + filling + " filling, " + frostingType + ", and " + decorations;
+        } else if (getFilling() != "none" && getDecorations() == "none") {
+            summary = name + ": " + cakeType + " with " + filling + " filling and " + frostingType;
+        } else if (getFilling() == "none" && getDecorations() != "none") {
+            summary = name + ": " + cakeType + " with " + frostingType + ", and " + decorations;
+        }
+        return summary;
     }
 }
