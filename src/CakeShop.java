@@ -10,9 +10,9 @@ public class CakeShop {
         System.out.println("---------------------------");
 
         // create cake options
-        Cake deathByChocolate = new Cake("Death by Chocolate","Chocolate Cake", "Dark Chocolate Buttercream", "Chocolate Drizzle");
-        Cake mochaButter = new Cake("Mocha Butter Cake", "Yellow Butter Cake", "Mocha Buttercream", "Chocolate Covered Espresso Bean");
-        Cake lemonBlueberry = new Cake("Lemon Blueberry Cake" ,"Lemon Cake", "Blueberry Buttercream", "Lemon Curd Filling");
+        Cake deathByChocolate = new Cake("Death by Chocolate","Chocolate Cake", "Dark Chocolate Buttercream");
+        Cake mochaButter = new Cake("Mocha Butter Cake", "Yellow Butter Cake", "Mocha Buttercream");
+        Cake lemonBlueberry = new Cake("Lemon Blueberry Cake" ,"Lemon Cake", "Blueberry Buttercream");
 
         // put all cakes in a list
         List<Cake> todaysCakes = new ArrayList<>();

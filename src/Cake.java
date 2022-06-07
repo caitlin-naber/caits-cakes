@@ -3,17 +3,21 @@ public class Cake {
     private String name;
     private String cakeType;
     private String frostingType;
+    private String filling;
     private String decorations;
     private double price;
 
 
-    public Cake(String name, String cakeType, String frostingType, String decorations) {
+    public Cake(String name, String cakeType, String frostingType) {
         this.name = name;
         this.cakeType = cakeType;
         this.frostingType = frostingType;
-        this.decorations = decorations;
     }
 
+
+    public String getName() {
+        return name;
+    }
 
     public String getCakeType() {
         return cakeType;
@@ -27,27 +31,28 @@ public class Cake {
         return decorations;
     }
 
+    public String getFilling() {
+        return filling;
+    }
+
     public double getPrice() {
         return price;
-    }
-
-    public void setCakeType(String cakeType) {
-        this.cakeType = cakeType;
-    }
-
-    public void setFrostingType(String frostingType) {
-        this.frostingType = frostingType;
     }
 
     public void setDecorations(String decorations) {
         this.decorations = decorations;
     }
 
+    public void setFilling(String filling) {
+        this.filling = filling;
+    }
+
     public void setPrice(double price) {
         this.price = price;
     }
 
+    // todo: account for filling and decoration
     public String cakeSummary() {
-        return name + ": " + cakeType + " with " + frostingType + " and " + decorations + ".";
+        return name + ": " + cakeType + " with " + frostingType + ".";
     }
 }
