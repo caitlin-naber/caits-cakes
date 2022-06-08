@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,10 +10,10 @@ public class ShoppingCart {
     }
 
     // learn how to work with BigDecimal
-    public double getTotalPrice() {
-        double total = 0.0;
+    public BigDecimal getTotalPrice() {
+        BigDecimal total = new BigDecimal("0.00");
         for (Cake cake : cakesInCart) {
-            total += cake.getPrice();
+            total.add(cake.getPrice());
         }
         return total;
     }

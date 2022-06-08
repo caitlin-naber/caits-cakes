@@ -1,19 +1,27 @@
+import java.math.BigDecimal;
+
 public class Cake {
 
     private String name;
     private String cakeType;
     private String frostingType;
+    private String filling;
     private String decorations;
-    private double price;
+    private BigDecimal price;
 
 
-    public Cake(String name, String cakeType, String frostingType, String decorations) {
+    public Cake(String name, String cakeType, String frostingType, String filling, String decorations) {
         this.name = name;
         this.cakeType = cakeType;
         this.frostingType = frostingType;
+        this.filling = filling;
         this.decorations = decorations;
     }
 
+
+    public String getName() {
+        return name;
+    }
 
     public String getCakeType() {
         return cakeType;
@@ -27,27 +35,35 @@ public class Cake {
         return decorations;
     }
 
-    public double getPrice() {
+    public String getFilling() {
+        return filling;
+    }
+
+    public BigDecimal getPrice() {
         return price;
-    }
-
-    public void setCakeType(String cakeType) {
-        this.cakeType = cakeType;
-    }
-
-    public void setFrostingType(String frostingType) {
-        this.frostingType = frostingType;
     }
 
     public void setDecorations(String decorations) {
         this.decorations = decorations;
     }
 
-    public void setPrice(double price) {
+    public void setFilling(String filling) {
+        this.filling = filling;
+    }
+
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
     public String cakeSummary() {
-        return name + ": " + cakeType + " with " + frostingType + " and " + decorations + ".";
+        String summary = name + ": \n" + cakeType + " with " + frostingType;
+        if (getFilling() != "none" && getDecorations() != "none") {
+            summary = name + ": \n" + cakeType + " with " + filling + " filling, " + frostingType + ", and " + decorations + "\n";
+        } else if (getFilling() != "none" && getDecorations() == "none") {
+            summary = name + ": \n" + cakeType + " with " + filling + " filling and " + frostingType + "\n";
+        } else if (getFilling() == "none" && getDecorations() != "none") {
+            summary = name + ": \n" + cakeType + " with " + frostingType + " and " + decorations + "\n";
+        }
+        return summary;
     }
 }
