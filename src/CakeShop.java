@@ -108,4 +108,5 @@ public class CakeShop {
 /*
 todo: save the order to a file for our records
 todo: confirm the order and give them a price
+todo: wrap things in methods
  */
