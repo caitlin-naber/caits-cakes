@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class Cake {
 
     private String name;
@@ -5,7 +7,7 @@ public class Cake {
     private String frostingType;
     private String filling;
     private String decorations;
-    private double price;
+    private BigDecimal price;
 
 
     public Cake(String name, String cakeType, String frostingType, String filling, String decorations) {
@@ -37,7 +39,7 @@ public class Cake {
         return filling;
     }
 
-    public double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
@@ -49,18 +51,18 @@ public class Cake {
         this.filling = filling;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
     public String cakeSummary() {
-        String summary = name + ": " + cakeType + " with " + frostingType;
+        String summary = name + ": \n" + cakeType + " with " + frostingType;
         if (getFilling() != "none" && getDecorations() != "none") {
-            summary = name + ": " + cakeType + " with " + filling + " filling, " + frostingType + ", and " + decorations;
+            summary = name + ": \n" + cakeType + " with " + filling + " filling, " + frostingType + ", and " + decorations + "\n";
         } else if (getFilling() != "none" && getDecorations() == "none") {
-            summary = name + ": " + cakeType + " with " + filling + " filling and " + frostingType;
+            summary = name + ": \n" + cakeType + " with " + filling + " filling and " + frostingType + "\n";
         } else if (getFilling() == "none" && getDecorations() != "none") {
-            summary = name + ": " + cakeType + " with " + frostingType + ", and " + decorations;
+            summary = name + ": \n" + cakeType + " with " + frostingType + " and " + decorations + "\n";
         }
         return summary;
     }
