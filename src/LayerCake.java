@@ -3,8 +3,10 @@ public class LayerCake extends Cake {
     private int layers;
     private int cakeSize;
 
-    public LayerCake(String name, String cakeType, String frostingType, String filling, String decorations) {
+    public LayerCake(String name, String cakeType, String frostingType, String filling, String decorations, int layers, int cakeSize) {
         super(name, cakeType, frostingType, filling, decorations);
+        this.layers = layers;
+        this.cakeSize = cakeSize;
     }
 
     // we want customers to be able to select number of layers and dimensions
@@ -24,7 +26,9 @@ public class LayerCake extends Cake {
         this.cakeSize = cakeSize;
     }
 
-    // todo: create new cakeSummary method that includes number of layers and size
-
-
+    @Override
+    public String cakeSummary() {
+        String summary = cakeSize + "in " + super.getName() + " cake with " + layers + " layers.";
+        return summary;
+    }
 }
