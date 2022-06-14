@@ -23,10 +23,22 @@ public class Menu {
         return userInput;
     }
 
-    public void getOrder() {
+    public int getOrderSelection() {
         System.out.println("Enter a number to start your order.");
         System.out.println("Your selection: ");
-        String orderSelection = getUserInput();
+        int orderSelection = Integer.parseInt(getUserInput()) - 1;
+        return orderSelection;
     }
+
+    public String getOrderType() {
+        System.out.println("You have selected [cake].");
+        System.out.println("Would you like to order a (A) layer cake or (B) cupcakes? ");
+        String orderType = getUserInput();
+        return orderType;
+    }
+
+
+
+
 
 }

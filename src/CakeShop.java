@@ -14,11 +14,6 @@ public class CakeShop {
         }
 
 
-
-        Scanner userInput = new Scanner(System.in);
-
-        String selectionInput = userInput.nextLine();
-        int selection = (Integer.parseInt(selectionInput)) - 1;
         Cake selectedCake = todaysCakes.get(selection);
         List<Cake> orderedItems = new ArrayList<>();
 
