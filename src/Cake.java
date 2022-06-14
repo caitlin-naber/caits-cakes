@@ -18,6 +18,10 @@ public class Cake {
         this.decorations = decorations;
     }
 
+    public Cake() {
+
+    }
+
 
     public String getName() {
         return name;
