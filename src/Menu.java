@@ -22,8 +22,10 @@ public class Menu {
 
     public void printDaysMenu() {
         // todo: get menu depending on the day of the week
-        DayOfWeek today = system.getDayOfTheWeek();
-        System.out.println("Today is " + today);
+        // todo: look into using switch statement before completing
+        // should this be happening in this class?
+        String today = system.getDayOfTheWeek();
+
     }
 
     public String getUserInput() {
@@ -44,10 +46,5 @@ public class Menu {
         String orderType = getUserInput();
         return orderType;
     }
-
-
-
-
-
 
 }
