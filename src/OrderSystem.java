@@ -1,14 +1,16 @@
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class OrderSystem {
 
     public String getDayOfTheWeek() {
-        DayOfWeek dayOfWeek = LocalDate.now().getDayOfWeek();
+        DayOfWeek dayOfWeek = LocalDateTime.now().getDayOfWeek();
         String today = String.valueOf(dayOfWeek);
         return today;
     }
 
+    // todo: should this be a switch statement
     public String getTodaysFileName() {
         String today = getDayOfTheWeek();
         String todaysFileName = "";

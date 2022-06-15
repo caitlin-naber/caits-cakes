@@ -22,9 +22,10 @@ public class Menu {
 
     public void printDaysMenu() {
         // todo: get menu depending on the day of the week
-        // todo: look into using switch statement before completing
-        // should this be happening in this class?
-        String today = system.getDayOfTheWeek();
+        Map<String, Cake> todaysMenu = fileReader.getTodaysMenu();
+        for (Map.Entry<String, Cake> menuItem: todaysMenu.entrySet()) {
+            System.out.println(menuItem);
+        }
 
     }
 

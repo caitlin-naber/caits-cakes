@@ -7,15 +7,16 @@ import java.util.Scanner;
 public class FileReader {
 
     private String menuFileName;
+    OrderSystem system = new OrderSystem();
 
+
+    // get todays menu file depending on the day of the week
     public void menuFileReader(String menuFileName) {
-        this.menuFileName = menuFileName;
+        this.menuFileName = system.getTodaysFileName();
     }
 
     // read from file and return a map of menu items (cakes)
-
-
-    public Map<String, Cake> readMenuFile() {
+    public Map<String, Cake> getTodaysMenu() {
         Map<String, Cake> menuItems = new HashMap<>();
         File file = new File(menuFileName);
 
