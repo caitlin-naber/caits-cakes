@@ -1,8 +1,14 @@
+import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Menu {
 
     private static final Scanner in = new Scanner(System.in);
+
+    OrderSystem system = new OrderSystem();
+    FileReader fileReader = new FileReader();
 
     public void welcomeMessage() {
         System.out.println("----------------------------");
@@ -16,6 +22,8 @@ public class Menu {
 
     public void printDaysMenu() {
         // todo: get menu depending on the day of the week
+        DayOfWeek today = system.getDayOfTheWeek();
+        System.out.println("Today is " + today);
     }
 
     public String getUserInput() {
@@ -36,6 +44,7 @@ public class Menu {
         String orderType = getUserInput();
         return orderType;
     }
+
 
 
 

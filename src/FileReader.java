@@ -12,8 +12,7 @@ public class FileReader {
         this.menuFileName = menuFileName;
     }
 
-    // read from file and return an ordered map of menu items (cakes)
-
+    // read from file and return a map of menu items (cakes)
     public Map<String, Cake> readMenuFile() {
         Map<String, Cake> menuItems = new HashMap<>();
         File file = new File(menuFileName);
