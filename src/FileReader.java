@@ -1,5 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.time.DayOfWeek;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -7,18 +9,48 @@ import java.util.Scanner;
 public class FileReader {
 
     private String menuFileName;
-    OrderSystem system = new OrderSystem();
 
+    public String getDayOfTheWeek() {
+        DayOfWeek dayOfWeek = LocalDateTime.now().getDayOfWeek();
+        String today = String.valueOf(dayOfWeek);
+        return today;
+    }
+
+    public String getTodaysFileName() {
+        String today = getDayOfTheWeek();
+        String todaysFileName = "";
+        switch (today) {
+            case "WEDNESDAY":
+                todaysFileName = "MenuWednesday";
+                break;
+            case "THURSDAY":
+                todaysFileName = "MenuThursday";
+                break;
+            case "FRIDAY":
+                todaysFileName = "MenuFriday";
+                break;
+            case "SATURDAY":
+                todaysFileName = "MenuSaturday";
+                break;
+            case "SUNDAY":
+                todaysFileName = "MenuSunday";
+                break;
+            default:
+                System.out.println("Sorry, we're closed today. Please come back another day!");
+                break;
+        }
+        return todaysFileName;
+    }
 
     // get todays menu file depending on the day of the week
     public void menuFileReader(String menuFileName) {
-        this.menuFileName = system.getTodaysFileName();
+        this.menuFileName = getTodaysFileName();
     }
 
     // read from file and return a map of menu items (cakes)
     public Map<String, Cake> getTodaysMenu() {
         Map<String, Cake> menuItems = new HashMap<>();
-        File file = new File(menuFileName);
+        File file = new File(getTodaysFileName());
 
         try(Scanner fileScanner = new Scanner(file)) {
             while(fileScanner.hasNextLine()) {
