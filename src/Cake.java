@@ -3,11 +3,13 @@ import java.util.Objects;
 
 public class Cake implements Orderable {
 
+
     private String name;
     private String cakeType;
     private String frostingType;
     private String filling;
     private String decorations;
+
 
 
     public Cake(String name, String cakeType, String frostingType, String filling, String decorations) {
@@ -22,6 +24,10 @@ public class Cake implements Orderable {
 
     }
 
+
+    public String getName() {
+        return name;
+    }
 
     public String getName() {
         return name;
@@ -49,6 +55,7 @@ public class Cake implements Orderable {
 
     public void setFilling(String filling) {
         this.filling = filling;
+
     }
 
 
@@ -64,6 +71,7 @@ public class Cake implements Orderable {
         return summary;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -75,5 +83,22 @@ public class Cake implements Orderable {
     @Override
     public int hashCode() {
         return Objects.hash(name, cakeType, frostingType, filling, decorations);
+
+    public void setFilling(String filling) {
+        this.filling = filling;
+    }
+
+
+    public String cakeSummary() {
+        String summary = name + ": \n" + cakeType + " with " + frostingType;
+        if (getFilling() != "none" && getDecorations() != "none") {
+            summary = name + ": \n" + cakeType + " with " + filling + " filling, " + frostingType + ", and " + decorations + "\n";
+        } else if (getFilling() != "none" && getDecorations() == "none") {
+            summary = name + ": \n" + cakeType + " with " + filling + " filling and " + frostingType + "\n";
+        } else if (getFilling() == "none" && getDecorations() != "none") {
+            summary = name + ": \n" + cakeType + " with " + frostingType + " and " + decorations + "\n";
+        }
+        return summary;
+
     }
 }

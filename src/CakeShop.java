@@ -12,8 +12,6 @@ public class CakeShop {
         menu.printDaysMenu();
 
 
-
-
 //        // print out list of options
 //        for (Cake cake : todaysCakes) {
 //            System.out.println((todaysCakes.indexOf(cake) + 1) + " - " + cake.cakeSummary());
@@ -84,5 +82,5 @@ public class CakeShop {
 /*
 todo: save the order to a file for our records
 todo: confirm the order and give them a price
-todo: wrap things in methods
+
  */
