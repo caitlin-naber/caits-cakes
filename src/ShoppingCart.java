@@ -9,22 +9,4 @@ public class ShoppingCart {
         cakesInCart.add(cakeToAdd);
     }
 
-    // learn how to work with BigDecimal
-    public BigDecimal getTotalPrice() {
-        BigDecimal total = new BigDecimal("0.00");
-        for (Cake cake : cakesInCart) {
-            total.add(cake.getPrice());
-        }
-        return total;
-    }
-
-    public String receipt() {
-        String receipt = "\nReceipt\n";
-        for (Cake cake : cakesInCart) {
-            receipt += cake.cakeSummary();
-            receipt += "\n";
-        }
-        receipt += "\nTotal: $" + getTotalPrice();
-        return receipt;
-    }
 }
