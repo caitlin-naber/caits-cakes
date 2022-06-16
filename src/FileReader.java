@@ -10,16 +10,16 @@ public class FileReader {
 
     private String menuFileName;
 
+
     public String getDayOfTheWeek() {
         DayOfWeek dayOfWeek = LocalDateTime.now().getDayOfWeek();
         String today = String.valueOf(dayOfWeek);
         return today;
     }
 
-    public String getTodaysFileName() {
-        String today = getDayOfTheWeek();
+    public String getFileNameFromDayOfWeek(String dayOfWeek) {
         String todaysFileName = "";
-        switch (today) {
+        switch (dayOfWeek) {
             case "WEDNESDAY":
                 todaysFileName = "MenuWednesday";
                 break;
@@ -42,15 +42,10 @@ public class FileReader {
         return todaysFileName;
     }
 
-    // get todays menu file depending on the day of the week
-    public void menuFileReader(String menuFileName) {
-        this.menuFileName = getTodaysFileName();
-    }
-
     // read from file and return a map of menu items (cakes)
     public Map<String, Cake> getTodaysMenu() {
         Map<String, Cake> menuItems = new HashMap<>();
-        File file = new File(getTodaysFileName());
+        File file = new File(getFileNameFromDayOfWeek(getDayOfTheWeek()));
 
         try(Scanner fileScanner = new Scanner(file)) {
             while(fileScanner.hasNextLine()) {

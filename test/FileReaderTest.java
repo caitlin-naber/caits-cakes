@@ -37,7 +37,7 @@ public class FileReaderTest {
         // Arrange
         String expectedResult = "MenuThursday";
         // Act
-        String actualResult = fileReader.getTodaysFileName();
+        String actualResult = fileReader.getFileNameFromDayOfWeek("THURSDAY");
         // Assert
         Assert.assertEquals(expectedResult, actualResult);
     }
