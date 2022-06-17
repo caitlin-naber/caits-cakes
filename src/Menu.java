@@ -24,7 +24,8 @@ public class Menu {
         // todo: get menu depending on the day of the week
         Map<String, Cake> todaysMenu = fileReader.getTodaysMenu();
         for (Map.Entry<String, Cake> menuItem: todaysMenu.entrySet()) {
-            System.out.println(menuItem);
+            Cake itemValue = menuItem.getValue();
+            System.out.println(itemValue.cakeSummary());
         }
 
     }

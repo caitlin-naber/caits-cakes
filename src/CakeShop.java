@@ -9,13 +9,9 @@ public class CakeShop {
         OrderSystem system = new OrderSystem();
         Menu menu = new Menu();
 
+        menu.welcomeMessage();
         menu.printDaysMenu();
-
-
-//        // print out list of options
-//        for (Cake cake : todaysCakes) {
-//            System.out.println((todaysCakes.indexOf(cake) + 1) + " - " + cake.cakeSummary());
-//        }
+        
 //
 //
 //        Cake selectedCake = todaysCakes.get(selection);
