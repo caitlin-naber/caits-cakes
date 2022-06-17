@@ -29,10 +29,6 @@ public class Cake implements Orderable {
         return name;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getCakeType() {
         return cakeType;
     }
@@ -83,22 +79,5 @@ public class Cake implements Orderable {
     @Override
     public int hashCode() {
         return Objects.hash(name, cakeType, frostingType, filling, decorations);
-
-    public void setFilling(String filling) {
-        this.filling = filling;
-    }
-
-
-    public String cakeSummary() {
-        String summary = name + ": \n" + cakeType + " with " + frostingType;
-        if (getFilling() != "none" && getDecorations() != "none") {
-            summary = name + ": \n" + cakeType + " with " + filling + " filling, " + frostingType + ", and " + decorations + "\n";
-        } else if (getFilling() != "none" && getDecorations() == "none") {
-            summary = name + ": \n" + cakeType + " with " + filling + " filling and " + frostingType + "\n";
-        } else if (getFilling() == "none" && getDecorations() != "none") {
-            summary = name + ": \n" + cakeType + " with " + frostingType + " and " + decorations + "\n";
-        }
-        return summary;
-
     }
 }

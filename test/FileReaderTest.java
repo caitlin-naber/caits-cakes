@@ -42,6 +42,7 @@ public class FileReaderTest {
         Assert.assertEquals(expectedResult, actualResult);
     }
 
+    // todo: figure out how to make it not dependent on day of week
     @Test
     public void get_items_for_thursdays_menu() {
         // Arrange
