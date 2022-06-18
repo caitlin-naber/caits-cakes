@@ -21,7 +21,6 @@ public class Menu {
     }
 
     public void printDaysMenu() {
-        // todo: get menu depending on the day of the week
         Map<String, Cake> todaysMenu = fileReader.getTodaysMenu();
         for (Map.Entry<String, Cake> menuItem: todaysMenu.entrySet()) {
             Cake itemValue = menuItem.getValue();
@@ -33,6 +32,17 @@ public class Menu {
     public String getUserInput() {
         String userInput = in.nextLine();
         return userInput;
+    }
+
+    public String getOrderStarted() {
+        System.out.println("Would you like to place an order?");
+        String startOrder = getUserInput();
+        if (!startOrder.equalsIgnoreCase("Y") || !startOrder.equalsIgnoreCase("N")) {
+            invalidUserEntry();
+        } else if (startOrder.equalsIgnoreCase("N")) {
+            // todo: figure out what to do here
+        }
+        return startOrder;
     }
 
     public int getOrderSelection() {
@@ -49,4 +59,7 @@ public class Menu {
         return orderType;
     }
 
+    public void invalidUserEntry() {
+        System.out.println("*** You have entered an invalid selection. Please try again. ***\n");
+    }
 }

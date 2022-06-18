@@ -11,7 +11,10 @@ public class CakeShop {
 
         menu.welcomeMessage();
         menu.printDaysMenu();
-        
+
+        while(true) {
+            menu.getOrderStarted();
+        }
 //
 //
 //        Cake selectedCake = todaysCakes.get(selection);
