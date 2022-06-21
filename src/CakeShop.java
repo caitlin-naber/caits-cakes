@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.time.LocalDate;
 
 public class CakeShop {
 
@@ -8,13 +6,21 @@ public class CakeShop {
 
         OrderSystem system = new OrderSystem();
         Menu menu = new Menu();
+        String today = String.valueOf(LocalDate.now().getDayOfWeek());
 
-        menu.welcomeMessage();
-        menu.printDaysMenu();
 
-        while(true) {
-            menu.getOrderStarted();
+        if (today.equals("MONDAY") || today.equals("TUESDAY")) {
+            menu.closedMessage();
+        } else {
+            menu.welcomeMessage();
+            menu.printDaysMenu();
+
+            while(true) {
+                menu.getOrderStarted();
+            }
         }
+
+
 //
 //
 //        Cake selectedCake = todaysCakes.get(selection);

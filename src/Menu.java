@@ -20,6 +20,10 @@ public class Menu {
         System.out.println("Today's offerings are below.\n");
     }
 
+    public void closedMessage() {
+        System.out.println("Sorry, we're closed today. Please come back another day!");
+    }
+
     public void printDaysMenu() {
         Map<String, Cake> todaysMenu = fileReader.getTodaysMenu();
         for (Map.Entry<String, Cake> menuItem: todaysMenu.entrySet()) {
@@ -40,7 +44,9 @@ public class Menu {
         if (!startOrder.equalsIgnoreCase("Y") || !startOrder.equalsIgnoreCase("N")) {
             invalidUserEntry();
         } else if (startOrder.equalsIgnoreCase("N")) {
-            // todo: figure out what to do here
+            System.out.println("We hope to see you again soon!");
+        } else {
+            // todo: cakes need to have a way to order
         }
         return startOrder;
     }

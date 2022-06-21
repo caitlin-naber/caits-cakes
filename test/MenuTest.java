@@ -15,9 +15,9 @@ public class MenuTest {
 //    @Test
 //    public void yes_start_order() {
 //        // Arrange
-//        String expectedResult = "Y";
+//        String userTestInput = "Y";
 //        // Act
-//
+//        menu.getOrderStarted(userTestInput);
 //        // Assert
 //    }
 }
