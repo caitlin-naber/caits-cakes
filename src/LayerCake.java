@@ -9,7 +9,6 @@ public class LayerCake extends Cake {
         this.cakeSize = cakeSize;
     }
 
-    // we want customers to be able to select number of layers and dimensions
     public int getLayers() {
         return layers;
     }

@@ -3,14 +3,11 @@ import java.util.Objects;
 
 public class Cake implements Orderable {
 
-
     private String name;
     private String cakeType;
     private String frostingType;
     private String filling;
     private String decorations;
-
-
 
     public Cake(String name, String cakeType, String frostingType, String filling, String decorations) {
         this.name = name;
@@ -23,7 +20,6 @@ public class Cake implements Orderable {
     public Cake() {
 
     }
-
 
     public String getName() {
         return name;
@@ -51,9 +47,7 @@ public class Cake implements Orderable {
 
     public void setFilling(String filling) {
         this.filling = filling;
-
     }
-
 
     public String cakeSummary() {
         String summary = name + ": \n" + cakeType + " with " + frostingType;
@@ -66,7 +60,6 @@ public class Cake implements Orderable {
         }
         return summary;
     }
-
 
     @Override
     public boolean equals(Object o) {

@@ -17,6 +17,8 @@ public class CakeShop {
 
             while(true) {
                 menu.getOrderStarted();
+                menu.buildOrder();
+                menu.completeOrder();
             }
         }
 

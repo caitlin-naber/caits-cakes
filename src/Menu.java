@@ -9,6 +9,7 @@ public class Menu {
 
     OrderSystem system = new OrderSystem();
     FileReader fileReader = new FileReader();
+    ShoppingCart cart = new ShoppingCart();
 
     public void welcomeMessage() {
         System.out.println("----------------------------");
@@ -26,9 +27,11 @@ public class Menu {
 
     public void printDaysMenu() {
         Map<String, Cake> todaysMenu = fileReader.getTodaysMenu();
+        int i = 1;
         for (Map.Entry<String, Cake> menuItem: todaysMenu.entrySet()) {
             Cake itemValue = menuItem.getValue();
-            System.out.println(itemValue.cakeSummary());
+            System.out.println("(" + i + ") " + itemValue.cakeSummary());
+            i++;
         }
 
     }
@@ -38,17 +41,42 @@ public class Menu {
         return userInput;
     }
 
-    public String getOrderStarted() {
-        System.out.println("Would you like to place an order?");
+    public boolean getOrderStarted() {
+        System.out.println("Would you like to place an order? (Y)/(N)");
         String startOrder = getUserInput();
-        if (!startOrder.equalsIgnoreCase("Y") || !startOrder.equalsIgnoreCase("N")) {
+        if (!startOrder.equalsIgnoreCase("Y") && !startOrder.equalsIgnoreCase("N")) {
             invalidUserEntry();
         } else if (startOrder.equalsIgnoreCase("N")) {
             System.out.println("We hope to see you again soon!");
+            return false;
         } else {
-            // todo: cakes need to have a way to order
+            completeOrder();
         }
-        return startOrder;
+        return true;
+    }
+
+    public void buildOrder() {
+        System.out.println("Please enter the number of the type of cake you would like to build an order for.");
+        String cakeToOrder = getUserInput();
+        System.out.println("Would you like to order a (L)ayer Cake or (C)upcakes?");
+        String orderType = getUserInput();
+        if (!orderType.equalsIgnoreCase("L") && !orderType.equalsIgnoreCase("C")) {
+            invalidUserEntry();
+        } else if (orderType.equalsIgnoreCase("L")) {
+            System.out.println("How many layers would you like your cake to be? We offer 2 and 3 layers.");
+            String cakeLayers = getUserInput();
+            System.out.println("What size would you like your cake to be? We offer 6, 8, and 9 inch cakes.");
+            String cakeSize = getUserInput();
+            cart.addLayerCake(cakeToOrder, orderType, cakeLayers, cakeSize);
+        } else if (orderType.equalsIgnoreCase("C")) {
+            System.out.println("How many cupcakes would you like to order?");
+            int cupcakesToOrder = Integer.parseInt(getUserInput());
+            cart.addCupcakes(cakeToOrder, cupcakesToOrder);
+        }
+    }
+
+    public void completeOrder() {
+        cart.orderConfirmation();
     }
 
     public int getOrderSelection() {

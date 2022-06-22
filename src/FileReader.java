@@ -58,8 +58,7 @@ public class FileReader {
         }
         return menuItems;
     }
-
-
+    
     // given a line, pull the parts of a Cake object
     public Cake createCakeFromLine(String line) {
         String[] lineComponents = line.split("\\|");
