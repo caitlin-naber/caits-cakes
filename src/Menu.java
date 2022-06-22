@@ -53,23 +53,23 @@ public class Menu {
     }
 
     // todo: this should not be here
-    public void buildOrder() {
-
-        // todo: need to access "index" from the menu list
-        if (!orderType.equalsIgnoreCase("L") && !orderType.equalsIgnoreCase("C")) {
-            invalidUserEntry();
-        } else if (orderType.equalsIgnoreCase("L")) {
-            System.out.println("How many layers would you like your cake to be? We offer 2 and 3 layers.");
-            String cakeLayers = getUserInput() + " layers";
-            System.out.println("What size would you like your cake to be? We offer 6, 8, and 9 inch cakes.");
-            String cakeSize = getUserInput() + " inch";
-            cart.addLayerCakeToCart(cakeToOrder, cakeLayers, cakeSize);
-        } else if (orderType.equalsIgnoreCase("C")) {
-            System.out.println("How many cupcakes would you like to order?");
-            int cupcakesToOrder = Integer.parseInt(getUserInput());
-//            cart.addCupcakesToCart(cakeToOrder, cupcakesToOrder);
-        }
-    }
+//    public void buildOrder() {
+//
+//        // todo: need to access "index" from the menu list
+//        if (!orderType.equalsIgnoreCase("L") && !orderType.equalsIgnoreCase("C")) {
+//            invalidUserEntry();
+//        } else if (orderType.equalsIgnoreCase("L")) {
+//            System.out.println("How many layers would you like your cake to be? We offer 2 and 3 layers.");
+//            String cakeLayers = getUserInput() + " layers";
+//            System.out.println("What size would you like your cake to be? We offer 6, 8, and 9 inch cakes.");
+//            String cakeSize = getUserInput() + " inch";
+//            cart.addLayerCakeToCart(cakeToOrder, cakeLayers, cakeSize);
+//        } else if (orderType.equalsIgnoreCase("C")) {
+//            System.out.println("How many cupcakes would you like to order?");
+//            int cupcakesToOrder = Integer.parseInt(getUserInput());
+////            cart.addCupcakesToCart(cakeToOrder, cupcakesToOrder);
+//        }
+//    }
 
     // todo: this should not be here
     public void completeOrder() {

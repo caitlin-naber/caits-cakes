@@ -51,11 +51,11 @@ public class Cake implements Orderable {
 
     public String cakeSummary() {
         String summary = name + ": \n" + cakeType + " with " + frostingType;
-        if (getFilling() != "none" && getDecorations() != "none") {
+        if (!getFilling().equals("none") && !getDecorations().equals("none")) {
             summary = name + ": \n" + cakeType + " with " + filling + " filling, " + frostingType + ", and " + decorations + "\n";
-        } else if (getFilling() != "none" && getDecorations() == "none") {
+        } else if (!getFilling().equals("none") && getDecorations().equals("none")) {
             summary = name + ": \n" + cakeType + " with " + filling + " filling and " + frostingType + "\n";
-        } else if (getFilling() == "none" && getDecorations() != "none") {
+        } else if (getFilling().equals("none") && getDecorations().equals("none")) {
             summary = name + ": \n" + cakeType + " with " + frostingType + " and " + decorations + "\n";
         }
         return summary;

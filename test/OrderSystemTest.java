@@ -22,12 +22,10 @@ public class OrderSystemTest {
     }
 
     @Test
-    public void build_layer_cake_to_order_returns_expeceted_value_for_layer_cake() {
+    public void build_layer_cake_to_order_returns_expected_value_for_layer_cake() {
         String cakeName = testCake.getName();
         String expectedItem = cakeSize + " " + cakeName + " cake with " + numberOfLayers;
         String cakeToOrder = system.buildLayerCakeToOrder(testCake, numberOfLayers, cakeSize);
-        cakesInCart.add(cakeToOrder);
-        String actualItem = cakesInCart.get(0);
-        Assert.assertEquals(expectedItem, actualItem);
+        Assert.assertEquals(expectedItem, cakeToOrder);
     }
 }

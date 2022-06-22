@@ -16,12 +16,6 @@ public class FileReaderTest {
 
     }
 
-    // getDayOfWeek
-    // getTodaysFileName
-    // menuFileReader
-    // getTodaysMenu
-    // createCakeFromLine
-
     @Test
     public void get_today_for_day_of_week() {
         // Arrange

@@ -8,9 +8,6 @@ import java.util.Scanner;
 
 public class FileReader {
 
-    private String menuFileName;
-
-
     public String getDayOfTheWeek() {
         DayOfWeek dayOfWeek = LocalDateTime.now().getDayOfWeek();
         String today = String.valueOf(dayOfWeek);
