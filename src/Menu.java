@@ -1,5 +1,3 @@
-import java.text.SimpleDateFormat;
-import java.time.DayOfWeek;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -7,7 +5,6 @@ public class Menu {
 
     private static final Scanner in = new Scanner(System.in);
 
-    OrderSystem system = new OrderSystem();
     FileReader fileReader = new FileReader();
     ShoppingCart cart = new ShoppingCart();
 
@@ -55,40 +52,39 @@ public class Menu {
         return true;
     }
 
+    // todo: this should not be here
     public void buildOrder() {
-        System.out.println("Please enter the number of the type of cake you would like to build an order for.");
-        String cakeToOrder = getUserInput();
-        System.out.println("Would you like to order a (L)ayer Cake or (C)upcakes?");
-        String orderType = getUserInput();
+
+        // todo: need to access "index" from the menu list
         if (!orderType.equalsIgnoreCase("L") && !orderType.equalsIgnoreCase("C")) {
             invalidUserEntry();
         } else if (orderType.equalsIgnoreCase("L")) {
             System.out.println("How many layers would you like your cake to be? We offer 2 and 3 layers.");
-            String cakeLayers = getUserInput();
+            String cakeLayers = getUserInput() + " layers";
             System.out.println("What size would you like your cake to be? We offer 6, 8, and 9 inch cakes.");
-            String cakeSize = getUserInput();
-            cart.addLayerCake(cakeToOrder, orderType, cakeLayers, cakeSize);
+            String cakeSize = getUserInput() + " inch";
+            cart.addLayerCakeToCart(cakeToOrder, cakeLayers, cakeSize);
         } else if (orderType.equalsIgnoreCase("C")) {
             System.out.println("How many cupcakes would you like to order?");
             int cupcakesToOrder = Integer.parseInt(getUserInput());
-            cart.addCupcakes(cakeToOrder, cupcakesToOrder);
+//            cart.addCupcakesToCart(cakeToOrder, cupcakesToOrder);
         }
     }
 
+    // todo: this should not be here
     public void completeOrder() {
         cart.orderConfirmation();
     }
 
-    public int getOrderSelection() {
-        System.out.println("Enter a number to start your order.");
-        System.out.println("Your selection: ");
-        int orderSelection = Integer.parseInt(getUserInput()) - 1;
-        return orderSelection;
+    public Cake getOrderSelection() {
+        System.out.println("Please enter the number of the type of cake you would like to build an order for.");
+        int selectedCake = Integer.parseInt(getUserInput());
+        Cake cakeToOrder = fileReader.getTodaysMenu().get(selectedCake - 1);
+        return cakeToOrder;
     }
 
     public String getOrderType() {
-        System.out.println("You have selected [cake].");
-        System.out.println("Would you like to order a (A) layer cake or (B) cupcakes? ");
+        System.out.println("Would you like to order a (L)ayer Cake or (C)upcakes?");
         String orderType = getUserInput();
         return orderType;
     }

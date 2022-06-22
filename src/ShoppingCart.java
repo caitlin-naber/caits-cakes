@@ -1,21 +1,20 @@
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCart {
     private List<String> cakesInCart = new ArrayList<>();
+    OrderSystem system = new OrderSystem();
 
-    public void addLayerCake(String typeOfCake, String typeOfOrder, String numberOfLayers, String cakeSize) {
-        // todo: given user entry, build the full order
-        String cakeToAdd = typeOfCake + " " + typeOfOrder + " " + numberOfLayers + " " +
-                cakeSize;
-        cakesInCart.add(cakeToAdd);
+    public List<String> getCakesInCart(List<String> cakesInCart) {
+        return cakesInCart;
     }
 
-    public void addCupcakes(String typeOfCake, int numberOfCupcakes) {
-        // todo: given user entry, build the full order
-        String cupcakesToAdd = typeOfCake + " " + numberOfCupcakes;
-        cakesInCart.add(cupcakesToAdd);
+    public void addLayerCakeToCart(Cake cakeToOrder, String numberOfLayers, String cakeSize) {
+        cakesInCart.add(system.buildLayerCakeToOrder(cakeToOrder, numberOfLayers, cakeSize));
+    }
+
+    public void addCupcakesToCart(Cake cakeToOrder, int numberOfCupcakes) {
+        cakesInCart.add(system.buildCupcakesToOrder(cakeToOrder, numberOfCupcakes));
     }
 
     public void orderConfirmation() {
