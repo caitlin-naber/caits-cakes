@@ -28,4 +28,14 @@ public class OrderSystemTest {
         String cakeToOrder = system.buildLayerCakeToOrder(testCake, numberOfLayers, cakeSize);
         Assert.assertEquals(expectedItem, cakeToOrder);
     }
+
+    @Test
+    public void build_cupcakes_to_order_returns_expected_value() {
+        String cakeName = testCake.getName();
+        int numberOfCupcakes = 24;
+        String expectedItem = numberOfCupcakes + " " + cakeName + " cupcakes";
+        String actualItem = system.buildCupcakesToOrder(testCake, numberOfCupcakes);
+        Assert.assertEquals(expectedItem, actualItem);
+
+    }
 }

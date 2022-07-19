@@ -2,7 +2,11 @@
 
 public class OrderSystem {
 
-    ShoppingCart cart = new ShoppingCart();
+//    public Cake buildCakeForOrder (String orderType) {
+//        if (orderType.equalsIgnoreCase("L")) {
+//            buildLayerCakeToOrder();
+//        }
+//    }
 
     public String buildLayerCakeToOrder(Cake cakeToOrder, String numberOfLayers, String cakeSize) {
         String cakeName = cakeToOrder.getName();
@@ -13,9 +17,4 @@ public class OrderSystem {
         String cakeName = cakeToOrder.getName();
         return numberOfCupcakes + " " + cakeName + " cupcakes";
     }
-
-    public void completeOrder() {
-        cart.orderConfirmation();
-    }
-
 }

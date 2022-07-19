@@ -14,13 +14,14 @@ public class CakeShop {
         } else {
             menu.welcomeMessage();
             menu.printDaysMenu();
+            menu.getOrderStarted();
 
             while(true) {
-                menu.getOrderStarted();
                 menu.getOrderSelection();
-                system.completeOrder();
+                String orderType = menu.getOrderType();
 
+
+                }
             }
         }
     }
-}

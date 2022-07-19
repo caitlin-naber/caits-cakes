@@ -30,7 +30,6 @@ public class Menu {
             System.out.println("(" + i + ") " + itemValue.cakeSummary());
             i++;
         }
-
     }
 
     public String getUserInput() {
@@ -56,8 +55,6 @@ public class Menu {
 //    public void buildOrder() {
 //
 //        // todo: need to access "index" from the menu list
-//        if (!orderType.equalsIgnoreCase("L") && !orderType.equalsIgnoreCase("C")) {
-//            invalidUserEntry();
 //        } else if (orderType.equalsIgnoreCase("L")) {
 //            System.out.println("How many layers would you like your cake to be? We offer 2 and 3 layers.");
 //            String cakeLayers = getUserInput() + " layers";
@@ -76,6 +73,7 @@ public class Menu {
         cart.orderConfirmation();
     }
 
+    //todo: add input validation
     public Cake getOrderSelection() {
         System.out.println("Please enter the number of the type of cake you would like to build an order for.");
         int selectedCake = Integer.parseInt(getUserInput());
@@ -86,8 +84,12 @@ public class Menu {
     public String getOrderType() {
         System.out.println("Would you like to order a (L)ayer Cake or (C)upcakes?");
         String orderType = getUserInput();
+        if (!orderType.equalsIgnoreCase("L") && !orderType.equalsIgnoreCase("C")) {
+            invalidUserEntry();
+        }
         return orderType;
     }
+
 
     public void invalidUserEntry() {
         System.out.println("*** You have entered an invalid selection. Please try again. ***\n");
